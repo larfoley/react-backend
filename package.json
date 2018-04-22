@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "start": "concurrently --kill-others-on-fail \"npm run build\" \"node ./bin/www\"",
+    "heroku-postbuild": "cd client && npm --production=false && npm run build",
     "build" : "cd client && npm run build",
     "client": "cd client && npm run start",
     "server": "nodemon ./bin/www",
