@@ -36,7 +36,7 @@ app.use((err, req, res, next) => {
 })
 
 app.get('*', (req, res, next) => {
-  res.sendFile(path.join(__dirname, 'client/public/index.html'))
+  res.sendFile(path.join(__dirname, 'client/build/index.html'))
 });
 
 
