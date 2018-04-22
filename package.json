@@ -2,6 +2,9 @@
   "name": "react-backend",
   "version": "0.0.0",
   "private": true,
+  "engines": {
+    "node": "7.10.0"
+  },
   "scripts": {
     "start": "concurrently --kill-others-on-fail \"npm run build\" \"node ./bin/www\"",
     "heroku-postbuild": "cd client && npm run build",
