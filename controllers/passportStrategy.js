@@ -1,8 +1,10 @@
 const Strategy = require('passport-local').Strategy
+const User = require('../models/User')
 
 module.exports = new Strategy(
+  {usernameField:"email", passwordField:"password"},
   (username, password, done) => {
-    User.findOne({ username: username }, (err, user) => {
+    User.findOne({ email: username }, (err, user) => {
       if (err) { return done(err) }
       if (!user) {
         return done(null, false, { message: 'Incorrect username.' })
@@ -13,7 +15,7 @@ module.exports = new Strategy(
           return done(null, false, { message: 'Incorrect password.' })
         }
       })
+      return done(null, user)
     })
-    return done(null, user)
   }
 )
